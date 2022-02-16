@@ -43,5 +43,3 @@
    </div>
    <!-- /.error-page -->
 </section>
-
-<!-- /.content --><?php include "partials/scripts.php"; ?>

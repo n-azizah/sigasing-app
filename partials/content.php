@@ -1,3 +1,4 @@
+<!-- Content Header (Page header) -->
 <div class="content-header">
    <div class="container-fluid">
       <div class="row mb-2">
@@ -14,6 +15,7 @@
    </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
+
 <!-- Main content -->
 <div class="content">
    <div class="container-fluid">
@@ -55,8 +57,7 @@
                <div class="card-body">
                   <h6 class="card-title">Special title treatment</h6>
 
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                  </p>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                </div>
             </div>
@@ -68,8 +69,7 @@
                <div class="card-body">
                   <h6 class="card-title">Special title treatment</h6>
 
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                  </p>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                </div>
             </div>
@@ -81,4 +81,4 @@
 </div>
 <!-- /.content -->
 
-<?php include "partials/scripts.php"; ?>
+<?php include "partials/scripts.php" ?>

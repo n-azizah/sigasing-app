@@ -1,3 +1,4 @@
+<!-- Content Header (Page header) -->
 <div class="content-header">
    <div class="container-fluid">
       <div class="row mb-2">
@@ -14,8 +15,8 @@
    </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
-<!-- Main content -->
 
+<!-- Main content -->
 <div class="content">
    <div class="container-fluid">
       <div class="row">
@@ -85,4 +86,4 @@
 </div>
 <!-- /.content -->
 
-<?php include "partials/scripts.php"; ?>
+<?php include "partials/scripts.php" ?>

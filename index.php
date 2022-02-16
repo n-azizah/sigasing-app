@@ -15,5 +15,3 @@
 </body>
 
 </html>
-
-<?php include "partials/scripts.php"; ?>

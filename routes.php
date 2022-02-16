@@ -12,6 +12,3 @@
  } else {
     include "pages/home.php";
  }
- ?>
-
- <?php include "partials/scripts.php"; ?>
