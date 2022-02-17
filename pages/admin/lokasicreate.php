@@ -1,7 +1,33 @@
 <?php include_once "partials/scripts.php" ?>
 <?php
 if (isset($_POST['button_create'])) {
-	print_r($_POST);
+   $database = new Database();
+   $db = $database->getConnection();
+   
+   $validasi = "SELECT * FROM lokasi WHERE nama_lokasi = ? ";
+   $stmt = $db->prepare($validatesql);
+   $stmt->bindParam(1, $_POST['nama_lokasi']);
+   $stmt->execute();
+   if($stmt->rowCount() > 0 ){
+      ?>
+<div class="alert alert-danger alert-dismissible">
+   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+   <h5><i class="icon fas fa-ban"></i> Gagal</h5>
+   Nama Lokasi sudah ada
+</div>
+<?php
+   } else { 
+$stmt=$db->prepare($insertSql);
+$stmt->bindParam(1, $_POST['nama_lokasi']);
+if ($stmt->execute()) {
+$_SESSION['hasil'] = true;
+$_SESSION['pesan'] = "Berhasil Simpan Data";
+} else {
+   $_SESSION['hasil'] = false;
+   $_SESSION['pesan'] = "Gagal Simpan Data";
+}
+echo "<meta http-equiv='refresh' content='0;url=?page=lokasiread'>";
+}
 }
 ?>
 <section class="content-header">
