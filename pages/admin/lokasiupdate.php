@@ -2,7 +2,6 @@
 if (isset($_GET['id']) && $_GET['id'] <> '') {
     $database = new Database();
     $db = $database->getConnection();
-
     $id = $_GET['id'];
     $findSql = "SELECT * FROM lokasi WHERE id = ?";
     $stmt = $db->prepare($findSql);
@@ -10,7 +9,40 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
     $stmt->execute();
     $row = $stmt->fetch();
     if (isset($row['id'])) {
+        if (isset($_POST['button_update'])) {
+
+            $database = new Database();
+            $db = $database->getConnection();
+
+            $validateSql = "SELECT * FROM lokasi WHERE nama_lokasi = ? AND id != ?";
+            $stmt = $db->prepare($validateSql);
+            $stmt->bindParam(1, $_POST['nama_lokasi']);
+            $stmt->bindParam(2, $_POST['id']);
+            $stmt->execute();
+            if ($stmt->rowCount() > 0) {
 ?>
+<div class="alert alert-danger alert-dismissible">
+   <button class="close" data-dismiss="alert" aria-hidden="true">x</button>
+   <h5><i class="icon fas fa-ban"></i> Gagal</h5>
+   Nama lokasi sama sudah ada
+</div>
+<?php
+            } else {
+                $updateSql = "UPDATE lokasi SET nama_lokasi = ? WHERE id = ?";
+                $stmt = $db->prepare($updateSql);
+                $stmt->bindParam(1, $_POST['nama_lokasi']);
+                $stmt->bindParam(2, $_POST['id']);
+                if ($stmt->execute()) {
+                    $_SESSION['hasil'] = true;
+                    $_SESSION['pesan'] = "Berhasil ubah data";
+                } else {
+                    $_SESSION['hasil'] = false;
+                    $_SESSION['pesan'] = "Gagal ubah data";
+                }
+                echo '<meta http-equiv="refresh" content="0; url=?page=lokasiread">';
+            }
+        }
+        ?>
 <!-- di sini koding untuk formnya -->
 <section class="content-header">
    <div class="container-fluid">
@@ -28,7 +60,6 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
       </div>
    </div>
 </section>
-
 <section class="content">
    <div class="card">
       <div class="card-header">
@@ -51,7 +82,6 @@ if (isset($_GET['id']) && $_GET['id'] <> '') {
       </div>
    </div>
 </section>
-
 <?php include_once "partials/scripts.php" ?>
 <?php
     } else {
