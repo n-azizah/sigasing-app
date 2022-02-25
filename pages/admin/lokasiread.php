@@ -3,7 +3,7 @@
 <div class="content-header">
    <div class="container-fluid">
       <?php 
-      if (isset($_SESSIOn["hasil"])) {
+      if (isset($_SESSION["hasil"])) {
          if ($_SESSION["hasil"]) {
             ?>
       <div class="alert alert-success alert-dismissable">

@@ -4,7 +4,7 @@ if (isset($_POST['button_create'])) {
    $database = new Database();
    $db = $database->getConnection();
    
-   $validasi = "SELECT * FROM lokasi WHERE nama_lokasi = ? ";
+   $validateSql = "SELECT * FROM lokasi WHERE nama_lokasi = ? ";
    $stmt = $db->prepare($validatesql);
    $stmt->bindParam(1, $_POST['nama_lokasi']);
    $stmt->execute();
@@ -17,6 +17,7 @@ if (isset($_POST['button_create'])) {
 </div>
 <?php
    } else { 
+$insertSql = "INSERT INTO lokasi SET nama_lokasi = ?";
 $stmt=$db->prepare($insertSql);
 $stmt->bindParam(1, $_POST['nama_lokasi']);
 if ($stmt->execute()) {
