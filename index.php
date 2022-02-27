@@ -1,6 +1,8 @@
 <?php 
 session_start();
+include 'fungsi.php';
  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <?php include "partials/head.php"; ?>

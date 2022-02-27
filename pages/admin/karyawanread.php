@@ -55,6 +55,7 @@
                   <th>Nama Karyawan</th>
                   <th>Bagian</th>
                   <th>Jabatan</th>
+                  <th>Tanggal Masuk</th>
                   <th>Opsi</th>
                </tr>
             </thead>
@@ -64,6 +65,7 @@
                   <th>Nama Karyawan</th>
                   <th>Bagian</th>
                   <th>Jabatan</th>
+                  <th>Tanggal Masuk</th>
                   <th>Opsi</th>
                </tr>
             </tfoot>
@@ -82,6 +84,7 @@
                   <td><?php echo $row['nama_lengkap'] ?></td>
                   <td><?php echo $row['bagian_terkini'] ?></td>
                   <td><?php echo $row['jabatan_terkini'] ?></td>
+                  <td><?php echo tgl_indo($row['tanggal_masuk']) ?></td>
                   <td>
                      <a href="?page=karyawanupdate&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm mr-1">
                         <i class="fa fa-edit"></i> Ubah
