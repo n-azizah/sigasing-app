@@ -82,11 +82,21 @@
                <tr>
                   <td><?php echo $no++ ?></td>
                   <td><?php echo $row['nama_lengkap'] ?></td>
-                  <td><?php echo $row['bagian_terkini'] ?></td>
-                  <td><?php echo $row['jabatan_terkini'] ?></td>
+                  <td>
+                     <?php 
+                     $bagian_terkini = $row['bagian_terkini'] == "" ? "Belum ada" : $row['bagian_terkini']; ?>
+                     <a href="?page=karyawanbagian&id=<?php  echo $row['id'] ?>" class="btn bg-fuchsia btn-sm mr-1">
+                        <i class="fa fa-building"></i> <?php echo $bagian_terkini ?></a>
+                  </td>
+                  <td>
+                     <?php 
+                     $jabatan_terkini = $row['jabatan_terkini'] == "" ? "Belum ada" : $row['jabatan_terkini']; ?>
+                     <a href="?page=karyawanajabatan&id=<?php  echo $row['id'] ?>" class="btn bg-purple btn-sm mr-1">
+                        <i class="fa fa-building"></i> <?php echo $jabatan_terkini ?></a>
+                  </td>
                   <td><?php echo tgl_indo($row['tanggal_masuk']) ?></td>
                   <td>
-                     <a href="?page=karyawanupdate&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm mr-1">
+                     <a href=" ?page=karyawanupdate&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm mr-1">
                         <i class="fa fa-edit"></i> Ubah
                      </a>
                      <a href="?page=karyawandelete&id=<?php echo $row['id'] ?>" class="btn btn-danger btn-sm"
